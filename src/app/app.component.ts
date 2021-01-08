@@ -1,5 +1,7 @@
 import {
   animate,
+  group,
+  keyframes,
   state,
   style,
   transition,
@@ -29,8 +31,26 @@ import { Component, OnInit } from "@angular/core";
           borderRadius: "50%"
         })
       ),
-      transition(":enter", [style({ backgroundColor: "blue" }), animate(1000)]),
-      transition("normal <=> wild", animate(500))
+      // transition(
+      //   "normal => wild",
+      //   animate(
+      //     1000,
+      //     keyframes([
+      //       style({ backgroundColor: "yellow", offset: 0 }),
+      //       style({ backgroundColor: "green", offset: 0.2 }),
+      //       style({ backgroundColor: "blue", offset: 0.4 }),
+      //       style({ backgroundColor: "orange", offset: 0.6 }),
+      //       style({ backgroundColor: "teal", offset: 0.8 })
+      //     ])
+      //   )
+      // ),
+      transition(
+        "normal => wild",
+        group([
+          animate(200, style({ borderRadius: "50%" })),
+          animate(2000, style({ backgroundColor: "red" }))
+        ])
+      )
     ])
   ]
 })
