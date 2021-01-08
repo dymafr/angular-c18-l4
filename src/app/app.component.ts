@@ -29,7 +29,8 @@ import { Component, OnInit } from "@angular/core";
           borderRadius: "50%"
         })
       ),
-      transition(":enter", [style({ backgroundColor: "blue" }), animate(1000)])
+      transition(":enter", [style({ backgroundColor: "blue" }), animate(1000)]),
+      transition("normal <=> wild", animate(500))
     ])
   ]
 })
